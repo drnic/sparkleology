@@ -1,14 +1,17 @@
 require 'sparkleology/version'
 
-AUTHOR = 'FIXME full name'  # can also be an array of Authors
-EMAIL = "FIXME email"
-DESCRIPTION = "description of gem"
+AUTHOR = 'Dr Nic Williams'  # can also be an array of Authors
+EMAIL = "drnicwilliams@gmail.com"
+DESCRIPTION = <<-EOS
+Takes a Mac OS X application name that uses Sparkle for auto-updates, and returns information about that application's Sparkle RSS feed or the latest download URL for that Application.
+EOS
 GEM_NAME = 'sparkleology' # what ppl will type to install your gem
-RUBYFORGE_PROJECT = 'sparkleology' # The unix name for your project
+RUBYFORGE_PROJECT = 'drnicutilities' # The unix name for your project
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
 EXTRA_DEPENDENCIES = [
-#  ['activesupport', '>= 1.3.1']
+  ['plist', '>= 3.0.0'],
+  ['libxml-ruby', '>= 0.8.1']
 ]    # An array of rubygem dependencies [name, version]
 
 @config_file = "~/.rubyforge/user-config.yml"

@@ -1,32 +1,36 @@
 = sparkleology
 
-* FIX (url)
+* http://drnicutilities.rubyforge.org/sparkleology
+* http://github.com/drnic/sparkleology
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Takes a Mac OS X application name that uses Sparkle for auto-updates, and returns information about that application's Sparkle RSS feed or the latest download URL for that Application.
+
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* Can return the RSS feed for a given application that contains the "latest version" URL
+* Can return the "latest version" URL for a given application, either from the Application name or the RSS feed URL for an Application (say if the Application isn't yet installed)
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+Allows for scripting of fetching and/or installing the latest version of a specific OS X application.
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* libxml-ruby (>=0.8.1)
+* plist (>=3.0.0)
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install sparkleology
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 FIXME full name
+Copyright (c) 2008 Dr Nic Williams, Mocra
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

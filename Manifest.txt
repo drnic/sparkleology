@@ -1,5 +1,4 @@
 History.txt
-License.txt
 Manifest.txt
 PostInstall.txt
 README.rdoc
