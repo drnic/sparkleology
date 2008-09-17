@@ -11,4 +11,5 @@ require 'plist'
 gem 'libxml-ruby'
 require "libxml"
 
+require "sparkleology/exceptions"
 require "sparkleology/command"
