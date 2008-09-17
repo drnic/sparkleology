@@ -19,8 +19,9 @@ Allows for scripting of fetching and/or installing the latest version of a speci
 
 == REQUIREMENTS:
 
-* libxml-ruby (>=0.8.1)
-* plist (>=3.0.0)
+* RubyGems:
+  * libxml-ruby
+  * plist
 
 == INSTALL:
 

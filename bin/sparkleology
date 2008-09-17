@@ -44,3 +44,4 @@ end
 
 # path = OPTIONS[:path]
 
+puts Sparkleology::Command.new.run
