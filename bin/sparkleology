@@ -44,4 +44,6 @@ end
 
 # path = OPTIONS[:path]
 
-print Sparkleology::Command.for(ARGV.last).run
+app_name_or_feed_url = ARGV.last || STDIN.read
+
+print Sparkleology::Command.for(app_name_or_feed_url).run

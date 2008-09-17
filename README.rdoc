@@ -7,6 +7,19 @@
 
 Takes a Mac OS X application name that uses Sparkle for auto-updates, and returns information about that application's Sparkle RSS feed or the latest download URL for that Application.
 
+The command-line app +sparkleology+ has two modes of operation depending on the argument/STDIN provided. If the last argument, or STDIN, is:
+
+* an application name => the Sparkle RSS feed URL is returned
+* a Sparkle RSS feed URL => the latest version download URL is returned
+
+That is, the result of sparkleology can be passed to itself.
+
+  +sparkleology Skitch+ => http://update.plasq.com/skitch-appcast.xml
+  +sparkleology http://update.plasq.com/skitch-appcast.xml+ => http://skitch.com/download/skitch-b6.2-v10678.zip
+  
+Therefore, since +sparkleology+ can take the argument as STDIN as well, you can pipe the results together:
+
+  +sparkleology Skitch | sparkleology+ and +sparkleology Skitch | xargs sparkleology+ both return http://skitch.com/download/skitch-b6.2-v10678.zip
 
 == FEATURES/PROBLEMS:
 
