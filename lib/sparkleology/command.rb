@@ -15,6 +15,8 @@ class Sparkleology::Command
       self.paths.
            map { |root_path| File.join(root_path, full_app_name, "Contents/Info.plist") }.
            find { |plist| File.exists?(plist) }
+    end || begin
+      raise Sparkleology::InvalidApplicationNameException, app_name
     end
   end
   

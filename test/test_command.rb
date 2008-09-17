@@ -18,5 +18,15 @@ class TestCommand < Test::Unit::TestCase
 
     should_return_plist_path
   end
+
+  context "for invalid app name" do
+    setup do
+      @command = Sparkleology::Command.new(@app_name = 'XXX')
+    end
+
+    should "not find a plist file" do
+      assert_raise(Sparkleology::InvalidApplicationNameException) { @command.plist_path }
+    end
+  end
   
 end
