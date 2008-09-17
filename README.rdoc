@@ -5,7 +5,7 @@
 
 == DESCRIPTION:
 
-Takes a Mac OS X application name that uses Sparkle for auto-updates, and returns information about that application's Sparkle RSS feed or the latest download URL for that Application.
+Takes a Mac OS X application name that uses Sparkle (http://sparkle.andymatuschak.org/) for auto-updates, and returns information about that application's Sparkle RSS feed or the latest download URL for that Application.
 
 The command-line app +sparkleology+ has two modes of operation depending on the argument/STDIN provided. If the last argument, or STDIN, is:
 

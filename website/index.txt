@@ -1,10 +1,11 @@
 h1. sparkleology
 
-h1. &#x2192; 'sparkleology'
+h1. &#x2192; 'sparkleology Skitch'
 
 
 h2. What
 
+Takes a Mac OS X application name that uses "Sparkle":http://sparkle.andymatuschak.org/ for auto-updates, and returns information about that application's Sparkle RSS feed or the latest download URL for that Application.
 
 h2. Installing
 
@@ -12,59 +13,38 @@ h2. Installing
 
 h2. The basics
 
+The command-line app +sparkleology+ has two modes of operation depending on the argument/STDIN provided. If the last argument, or STDIN, is:
 
-h2. Demonstration of usage
+* an application name => the Sparkle RSS feed URL is returned
+* a Sparkle RSS feed URL => the latest version download URL is returned
 
+That is, the result of sparkleology can be passed to itself.
 
+* <code>sparkleology Skitch</code> => <code>http://update.plasq.com/skitch-appcast.xml</code>
+* <code>sparkleology http://update.plasq.com/skitch-appcast.xml</code> => <code>http://skitch.com/download/skitch-b6.2-v10678.zip</code>
+  
+Therefore, since +sparkleology+ can take the argument as STDIN as well, you can pipe the results together:
 
-h2. Forum
+<pre>sparkleology Skitch | sparkleology
+sparkleology Skitch | xargs sparkleology</pre>
 
-"http://groups.google.com/group/sparkleology":http://groups.google.com/group/sparkleology
+both return <code>http://skitch.com/download/skitch-b6.2-v10678.zip</code>
+  
+The reason that +sparkleology+ returns the RSS feed URL if you give it an App Name is that this feed URL is permanently consistent, whereas the download URL possibly changes with each new application version. So, the feed URL could be stored and then used later (say on a machine that does not have the original app already installed) to fetch the latest version of the application, which may or may not be already installed.
 
-TODO - create Google Group - sparkleology
+We're using this in the "noober project":http://github.com/bjeanes/noober script for installing a list of apps on a fresh OS X machine.
+
 
 h2. How to submit patches
 
 Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8b: Submit patch to Google Groups":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups, use the Google Group above.
 
-TODO - pick SVN or Git instructions
+You can fetch the source from github:
 
-The trunk repository is <code>svn://rubyforge.org/var/svn/sparkleology/trunk</code> for anonymous access.
+"http://github.com/drnic/sparkleology/tree/master":http://github.com/drnic/sparkleology/tree/master
 
-OOOORRRR
+<pre>git clone git://github.com/drnic/sparkleology.git</pre>
 
-You can fetch the source from either:
-
-<% if rubyforge_project_id %>
-
-* rubyforge: "http://rubyforge.org/scm/?group_id=<%= rubyforge_project_id %>":http://rubyforge.org/scm/?group_id=<%= rubyforge_project_id %>
-
-<pre>git clone git://rubyforge.org/sparkleology.git</pre>
-
-<% else %>
-
-* rubyforge: MISSING IN ACTION
-
-TODO - You can not created a RubyForge project, OR have not run <code>rubyforge config</code>
-yet to refresh your local rubyforge data with this projects' id information.
-
-When you do this, this message will magically disappear!
-
-Or you can hack website/index.txt and make it all go away!!
-
-<% end %>
-
-* github: "http://github.com/GITHUB_USERNAME/sparkleology/tree/master":http://github.com/GITHUB_USERNAME/sparkleology/tree/master
-
-<pre>git clone git://github.com/GITHUB_USERNAME/sparkleology.git</pre>
-
-
-TODO - add "github_username: username" to ~/.rubyforge/user-config.yml and newgem will reuse it for future projects.
-
-
-* gitorious: "git://gitorious.org/sparkleology/mainline.git":git://gitorious.org/sparkleology/mainline.git
-
-<pre>git clone git://gitorious.org/sparkleology/mainline.git</pre>
 
 h3. Build and test instructions
 
@@ -79,5 +59,5 @@ This code is free to use under the terms of the MIT license.
 
 h2. Contact
 
-Comments are welcome. Send an email to "FIXME full name":mailto:FIXME email via the "forum":http://groups.google.com/group/sparkleology
+Comments are welcome. Send an email to "Dr Nic Williams":mailto:drnicwilliams@gmail.com
 
