@@ -44,4 +44,4 @@ end
 
 # path = OPTIONS[:path]
 
-print Sparkleology::Command.new(ARGV.last).run
+print Sparkleology::Command.for(ARGV.last).run

@@ -20,7 +20,7 @@ class Sparkleology::LatestVersionCommand
   end
   
   def fetch_feed
-    open(rss_feed_url)
+    open(rss_feed_url).read
   end
   
   def tmp_file_path

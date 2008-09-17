@@ -9,6 +9,8 @@ config/requirements.rb
 lib/sparkleology.rb
 lib/sparkleology/command.rb
 lib/sparkleology/exceptions.rb
+lib/sparkleology/find_application_command.rb
+lib/sparkleology/latest_version_command.rb
 lib/sparkleology/version.rb
 script/console
 script/destroy
@@ -21,7 +23,9 @@ tasks/website.rake
 test/fixtures/Applications/NonSparkleApp.app/Contents/Info.plist
 test/fixtures/Applications/ValidSparkleApp.app/Contents/Info.plist
 test/test_command.rb
+test/test_find_application_command.rb
 test/test_helper.rb
+test/test_latest_version_command.rb
 test/test_sparkleology.rb
 website/index.html
 website/index.txt
