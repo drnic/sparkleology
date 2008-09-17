@@ -6,7 +6,7 @@ class Sparkleology::Command
   end
   
   def run
-    
+    url_for_latest_versions
   end
   
   def plist_path

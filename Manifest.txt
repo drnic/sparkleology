@@ -3,9 +3,12 @@ Manifest.txt
 PostInstall.txt
 README.rdoc
 Rakefile
+bin/sparkleology
 config/hoe.rb
 config/requirements.rb
 lib/sparkleology.rb
+lib/sparkleology/command.rb
+lib/sparkleology/exceptions.rb
 lib/sparkleology/version.rb
 script/console
 script/destroy
@@ -15,6 +18,9 @@ setup.rb
 tasks/deployment.rake
 tasks/environment.rake
 tasks/website.rake
+test/fixtures/Applications/NonSparkleApp.app/Contents/Info.plist
+test/fixtures/Applications/ValidSparkleApp.app/Contents/Info.plist
+test/test_command.rb
 test/test_helper.rb
 test/test_sparkleology.rb
 website/index.html
