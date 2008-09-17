@@ -12,7 +12,7 @@ class TestFindApplicationCommand < Test::Unit::TestCase
     
     should "find sparkle feed URL for latest versions of application" do
       expected = "http://update.plasq.com/skitch-appcast.xml"
-      assert_equal(expected, @command.url_for_latest_versions)
+      assert_equal(expected, @command.run)
     end
   end
   
@@ -24,7 +24,7 @@ class TestFindApplicationCommand < Test::Unit::TestCase
     should_return_plist_path
     
     should "not find sparkle URL and raise exception" do
-      assert_raise(Sparkleology::NonSparkleApplicationException) { @command.url_for_latest_versions }
+      assert_raise(Sparkleology::NonSparkleApplicationException) { @command.run }
     end
   end
 

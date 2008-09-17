@@ -3,6 +3,8 @@ require File.dirname(__FILE__) + '/../lib/sparkleology'
 
 gem 'Shoulda'
 require "Shoulda"
+gem 'mocha'
+require "mocha"
 
 ENV['TEST_HOME'] = File.dirname(__FILE__) + "/fixtures"
 
