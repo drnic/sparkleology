@@ -1,4 +1,9 @@
-class Sparkleology::Command
+# This command class takes an OS X application name, such as 'Skitch',
+# and returns the Sparkle RSS feed URL containing the latest update
+# information.
+# Pass the application name to the initializer, and call +run+.
+#   +Sparkleology::FindApplicationCommand.new('Skitch').run+
+class Sparkleology::FindApplicationCommand
   attr_reader :app_name
 
   def initialize(app_name)

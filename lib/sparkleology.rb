@@ -12,4 +12,4 @@ gem 'libxml-ruby'
 require "libxml"
 
 require "sparkleology/exceptions"
-require "sparkleology/command"
+require "sparkleology/find_application_command"
