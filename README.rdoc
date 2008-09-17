@@ -20,6 +20,10 @@ That is, the result of sparkleology can be passed to itself.
 Therefore, since +sparkleology+ can take the argument as STDIN as well, you can pipe the results together:
 
   +sparkleology Skitch | sparkleology+ and +sparkleology Skitch | xargs sparkleology+ both return http://skitch.com/download/skitch-b6.2-v10678.zip
+  
+The reason that +sparkleology+ returns the RSS feed URL if you give it an App Name is that this feed URL is permanently consistent, whereas the download URL possibly changes with each new application version. So, the feed URL could be stored and then used later (say on a machine that does not have the original app already installed) to fetch the latest version of the application, which may or may not be already installed.
+
+We're using this in the http://github.com/bjeanes/noober script for installing a list of apps on a fresh OS X machine.
 
 == FEATURES/PROBLEMS:
 
