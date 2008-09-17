@@ -20,6 +20,13 @@ class Sparkleology::Command
     end
   end
   
+  def url_for_latest_versions
+    application_info = Plist::parse_xml(plist_path)
+    application_info['SUFeedURL'] || begin
+      raise Sparkleology::NonSparkleApplicationException, app_name
+    end
+  end
+  
   def paths
     ["#{home_path}/Applications", "/Applications"]
   end

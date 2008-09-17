@@ -9,6 +9,11 @@ class TestCommand < Test::Unit::TestCase
     end
 
     should_return_plist_path
+    
+    should "find sparkle feed URL for latest versions of application" do
+      expected = "http://update.plasq.com/skitch-appcast.xml"
+      assert_equal(expected, @command.url_for_latest_versions)
+    end
   end
   
   context "for app name without sparkle RSS feed" do
@@ -17,6 +22,10 @@ class TestCommand < Test::Unit::TestCase
     end
 
     should_return_plist_path
+    
+    should "not find sparkle URL and raise exception" do
+      assert_raise(Sparkleology::NonSparkleApplicationException) { @command.url_for_latest_versions }
+    end
   end
 
   context "for invalid app name" do
@@ -24,7 +33,7 @@ class TestCommand < Test::Unit::TestCase
       @command = Sparkleology::Command.new(@app_name = 'XXX')
     end
 
-    should "not find a plist file" do
+    should "not find a plist file and raise exception" do
       assert_raise(Sparkleology::InvalidApplicationNameException) { @command.plist_path }
     end
   end
