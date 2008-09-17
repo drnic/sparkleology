@@ -18,3 +18,4 @@ require "xml"
 require "sparkleology/exceptions"
 require "sparkleology/find_application_command"
 require 'sparkleology/latest_version_command'
+require 'sparkleology/command'
