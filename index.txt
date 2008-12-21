@@ -1,0 +1,63 @@
+h1. sparkleology
+
+h1. &#x2192; 'sparkleology Skitch'
+
+
+h2. What
+
+Takes a Mac OS X application name that uses "Sparkle":http://sparkle.andymatuschak.org/ for auto-updates, and returns information about that application's Sparkle RSS feed or the latest download URL for that Application.
+
+h2. Installing
+
+<pre syntax="ruby">sudo gem install sparkleology</pre>
+
+h2. The basics
+
+The command-line app +sparkleology+ has two modes of operation depending on the argument/STDIN provided. If the last argument, or STDIN, is:
+
+* an application name => the Sparkle RSS feed URL is returned
+* a Sparkle RSS feed URL => the latest version download URL is returned
+
+That is, the result of sparkleology can be passed to itself.
+
+* <code>sparkleology Skitch</code> => <code>http://update.plasq.com/skitch-appcast.xml</code>
+* <code>sparkleology http://update.plasq.com/skitch-appcast.xml</code> => <code>http://skitch.com/download/skitch-b6.2-v10678.zip</code>
+  
+Therefore, since +sparkleology+ can take the argument as STDIN as well, you can pipe the results together:
+
+<pre>sparkleology Skitch | sparkleology
+sparkleology Skitch | xargs sparkleology</pre>
+
+both return <code>http://skitch.com/download/skitch-b6.2-v10678.zip</code>
+  
+The reason that +sparkleology+ returns the RSS feed URL if you give it an App Name is that this feed URL is permanently consistent, whereas the download URL possibly changes with each new application version. So, the feed URL could be stored and then used later (say on a machine that does not have the original app already installed) to fetch the latest version of the application, which may or may not be already installed.
+
+We're using this in the "noober project":http://github.com/bjeanes/noober script for installing a list of apps on a fresh OS X machine.
+
+
+h2. How to submit patches
+
+Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8b: Submit patch to Google Groups":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8b-google-groups, use the Google Group above.
+
+You can fetch the source from github:
+
+"http://github.com/drnic/sparkleology/tree/master":http://github.com/drnic/sparkleology/tree/master
+
+<pre>git clone git://github.com/drnic/sparkleology.git</pre>
+
+
+h3. Build and test instructions
+
+<pre>cd sparkleology
+rake test
+rake install_gem</pre>
+
+
+h2. License
+
+This code is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome. Send an email to "Dr Nic Williams":mailto:drnicwilliams@gmail.com
+
